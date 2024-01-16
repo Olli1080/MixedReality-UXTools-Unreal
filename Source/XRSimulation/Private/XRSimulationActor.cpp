@@ -389,7 +389,7 @@ void AXRSimulationActor::RegisterEnhancedInputAxis(UInputAction*& Action, FText 
 	Action->AddToRoot();
 
 	Action->ActionDescription = Description;
-	Action->Triggers.Add(NewObject<UInputTriggerDown>());
+	//Action->Triggers.Add(NewObject<UInputTriggerDown>());
 	Action->bConsumeInput = false;
 	Action->ValueType = EInputActionValueType::Axis1D;
 
@@ -410,7 +410,7 @@ void AXRSimulationActor::RegisterEnhancedInputAction(UInputAction*& Action, FTex
 	Action->AddToRoot();
 
 	Action->ActionDescription = Description;
-	Action->Triggers.Add(NewObject<UInputTriggerDown>());
+	//Action->Triggers.Add(NewObject<UInputTriggerDown>());
 	Action->bConsumeInput = false;
 
 	for (FKey Key : Keys)

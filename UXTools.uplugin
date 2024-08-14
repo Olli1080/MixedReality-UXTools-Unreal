@@ -86,6 +86,10 @@
 	],
 	"Plugins": [
 		{
+			"Name": "OpenXR",
+			"Enabled": true
+		},
+		{
 			"Name": "EnhancedInput",
 			"Enabled": true
 		},

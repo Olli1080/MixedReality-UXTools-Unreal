@@ -16,7 +16,8 @@ public class XRSimulation : ModuleRules
 				"Engine",
 				"EnhancedInput",
 				"HeadMountedDisplay",
-				"InputCore"
+				"InputCore",
+				"XRBase"
 			}
 		);
 

@@ -3,6 +3,8 @@
 
 #include "Input/UxtHandInteractionActor.h"
 
+#include "Engine/OverlapResult.h"
+
 #include "ProceduralMeshComponent.h"
 
 #include "Controls/UxtFarBeamComponent.h"

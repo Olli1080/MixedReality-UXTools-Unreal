@@ -7,6 +7,7 @@
 
 #include "GameFramework/PlayerController.h"
 #include "Kismet/GameplayStatics.h"
+#include "Components/PrimitiveComponent.h"
 
 FUxtXRSimulationViewExtension::FUxtXRSimulationViewExtension(
 	const FAutoRegister& AutoRegister, UUxtXRSimulationSubsystem* InSimulationSubsystem)
@@ -30,7 +31,7 @@ void FUxtXRSimulationViewExtension::SetupView(FSceneViewFamily& InViewFamily, FS
 			{
 				if (const UPrimitiveComponent* PrimComp = Cast<UPrimitiveComponent>(Component))
 				{
-					InView.HiddenPrimitives.Add(PrimComp->ComponentId);
+					InView.HiddenPrimitives.Add(PrimComp->GetPrimitiveSceneId());
 				}
 			}
 		}

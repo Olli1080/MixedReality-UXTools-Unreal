@@ -30,7 +30,7 @@ struct XRSIMULATION_API FXRSimulationHandPoseKeyMapping
 
 	/** Hand that triggers the key. */
 	UPROPERTY(EditAnywhere, Category = "XRSimulation")
-	EControllerHand Hand;
+	EControllerHand Hand = EControllerHand::AnyHand;
 
 	/** Simulated hand pose name. */
 	UPROPERTY(EditAnywhere, Category = "XRSimulation")

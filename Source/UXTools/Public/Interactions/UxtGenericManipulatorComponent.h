@@ -46,11 +46,11 @@ public:
 	EUxtOneHandRotationMode OneHandRotationMode;
 
 	/** Enabled transformations in two-handed manipulation. */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Uxt Generic Manipulator", meta = (Bitmask, BitmaskEnum = EUxtTransformMode))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Uxt Generic Manipulator", meta = (Bitmask, BitmaskEnum = "/Script/UXTools.EUxtTransformMode"))
 	int32 TwoHandTransformModes;
 
 	/** Controls the object's behavior when physics its being simulated. */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Uxt Generic Manipulator", meta = (Bitmask, BitmaskEnum = EUxtReleaseBehavior))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Uxt Generic Manipulator", meta = (Bitmask, BitmaskEnum = "/Script/UXTools.EUxtReleaseBehavior"))
 	int32 ReleaseBehavior;
 
 	/** The component to transform, will default to the root scene component if not specified */

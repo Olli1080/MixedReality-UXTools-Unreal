@@ -312,7 +312,7 @@ private:
 	/** Visual representation of the button face. This component's transform will be updated as the button is pressed/released. */
 	UPROPERTY(
 		EditAnywhere, DisplayName = "Visuals", Category = "Uxt Pressable Button",
-		meta = (UseComponentPicker, AllowedClasses = "SceneComponent"))
+		meta = (UseComponentPicker, AllowedClasses = "/Script/Engine.SceneComponent"))
 	FComponentReference VisualsReference;
 
 	/** Collision profile used by the button collider */

@@ -36,7 +36,7 @@ struct UXTOOLS_API FUxtGrabPointerData
 
 	/** The time at which interaction started, in seconds since application start. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Uxt Grab Pointer Data")
-	float StartTime;
+	float StartTime = 0.f;
 
 	/**
 	 * Transform of the pointer when it started interacting, in the local space of the target component.
@@ -319,11 +319,11 @@ public:
 	FUxtEndGrabDelegate OnEndGrab;
 
 	/** Property that indicates if the object is grabbable with far or near interaction or both. */
-	UPROPERTY(EditAnywhere, Category = "Uxt Grab Target", BlueprintReadWrite, meta = (Bitmask, BitmaskEnum = EUxtInteractionMode))
+	UPROPERTY(EditAnywhere, Category = "Uxt Grab Target", BlueprintReadWrite, meta = (Bitmask, BitmaskEnum = "/Script/UXTools.EUxtInteractionMode"))
 	int32 InteractionMode;
 
 	/** Enabled grab modes. */
-	UPROPERTY(EditAnywhere, Category = "Uxt Grab Target", BlueprintReadWrite, meta = (Bitmask, BitmaskEnum = EUxtGrabMode))
+	UPROPERTY(EditAnywhere, Category = "Uxt Grab Target", BlueprintReadWrite, meta = (Bitmask, BitmaskEnum = "/Script/UXTools.EUxtGrabMode"))
 	int32 GrabModes;
 
 private:

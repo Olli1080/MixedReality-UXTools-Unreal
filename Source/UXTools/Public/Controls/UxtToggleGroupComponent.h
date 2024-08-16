@@ -96,6 +96,6 @@ private:
 
 	/** Details panel exposed list of toggle states to initially populate the ToggleStates list with. The component property name is
 	   optional, if `None` is specified the first UUxtToggleStateComponent found is used.*/
-	UPROPERTY(EditAnywhere, Category = "Uxt Toggle Group", meta = (AllowedClasses = "UUxtToggleStateComponent"))
+	UPROPERTY(EditAnywhere, Category = "Uxt Toggle Group", meta = (AllowedClasses = "/Script/UXTools.UUxtToggleStateComponent"))
 	TArray<FComponentReference> ToggleReferences;
 };

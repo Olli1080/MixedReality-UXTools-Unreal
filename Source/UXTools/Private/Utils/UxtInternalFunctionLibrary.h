@@ -37,13 +37,13 @@ struct UXTOOLS_API FUxtFontCharacter
 	 * The UV offset within the texture to find the character.
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Uxt Font Character")
-	FLinearColor UVTransform;
+	FLinearColor UVTransform = FLinearColor{0.f, 0.f, 0.f, 0.f };
 
 	/**
 	 * The normalized width and height of the character.
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Uxt Font Character")
-	FVector Size;
+	FVector Size = {0., 0., 0.};
 };
 
 /**

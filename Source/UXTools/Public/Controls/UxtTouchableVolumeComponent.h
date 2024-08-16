@@ -57,7 +57,7 @@ public:
 	void SetEnabled(bool Enabled);
 
 	/** Types of interaction the volume should respond to. */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Uxt Touchable Volume", meta = (Bitmask, BitmaskEnum = EUxtInteractionMode))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Uxt Touchable Volume", meta = (Bitmask, BitmaskEnum = "/Script/UXTools.EUxtInteractionMode"))
 	int32 InteractionMode = static_cast<int32>(EUxtInteractionMode::Near | EUxtInteractionMode::Far);
 
 	/** Should the volume lock the pointer's focus when poked. */

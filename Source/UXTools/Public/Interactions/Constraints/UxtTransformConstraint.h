@@ -33,11 +33,11 @@ public:
 
 public:
 	/** Whether this constraint applies to one hand manipulation, two hand manipulation or both. */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Uxt Constraint", meta = (Bitmask, BitmaskEnum = EUxtGrabMode))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Uxt Constraint", meta = (Bitmask, BitmaskEnum = "/Script/UXTools.EUxtGrabMode"))
 	int32 HandType = static_cast<int32>(EUxtGrabMode::OneHanded | EUxtGrabMode::TwoHanded);
 
 	/** Whether this constraint applies to near manipulation, far manipulation or both. */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Uxt Constraint", meta = (Bitmask, BitmaskEnum = EUxtInteractionMode))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Uxt Constraint", meta = (Bitmask, BitmaskEnum = "/Script/UXTools.EUxtInteractionMode"))
 	int32 InteractionMode = static_cast<int32>(EUxtInteractionMode::Near | EUxtInteractionMode::Far);
 
 protected:

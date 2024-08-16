@@ -164,7 +164,7 @@ private:
 	FText TooltipText;
 
 	/** An offset to specify where the tooltip will be spawned. */
-	UPROPERTY(EditAnywhere, Category = "Uxt Tooltip Spawner - Experimental", meta = (UseComponentPicker, AllowedClasses = "SceneComponent"))
+	UPROPERTY(EditAnywhere, Category = "Uxt Tooltip Spawner - Experimental", meta = (UseComponentPicker, AllowedClasses = "/Script/Engine.SceneComponent"))
 	FComponentReference Pivot;
 
 	/** Overrides the auto anchor on the spawned tooltip. */

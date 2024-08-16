@@ -114,7 +114,7 @@ public:
 
 	/** Enables/disables interaction for specific interaction types. */
 	UPROPERTY(
-		EditAnywhere, Category = "Uxt Scrolling Object Collection - Experimental", meta = (Bitmask, BitmaskEnum = "EInteractionTypeBits"))
+		EditAnywhere, Category = "Uxt Scrolling Object Collection - Experimental", meta = (Bitmask, BitmaskEnum = "/Script/UXTools.EInteractionTypeBits"))
 	int32 CanScroll;
 
 	/** The direction in which the collection will scroll. */

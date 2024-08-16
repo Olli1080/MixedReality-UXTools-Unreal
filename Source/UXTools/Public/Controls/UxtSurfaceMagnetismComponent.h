@@ -118,7 +118,7 @@ private:
 	/** The component to transform, defaults to the first primitive component if not specified */
 	UPROPERTY(
 		EditAnywhere, Category = "Uxt Surface Magnetism - Experimental",
-		meta = (UseComponentPicker, AllowedClasses = "UPrimitiveComponent"))
+		meta = (UseComponentPicker, AllowedClasses = "/Script/Engine.UPrimitiveComponent"))
 	FComponentReference TargetComponent;
 
 	/** Far pointer in use */

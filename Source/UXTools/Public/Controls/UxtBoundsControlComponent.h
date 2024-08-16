@@ -224,7 +224,7 @@ private:
 	bool bInitBoundsFromActor = true;
 
 	/** Component used for bounds calculation, instead of the actor's root */
-	UPROPERTY(EditAnywhere, Category = "Uxt Bounds Control", meta = (UseComponentPicker, AllowedClasses = "SceneComponent"))
+	UPROPERTY(EditAnywhere, Category = "Uxt Bounds Control", meta = (UseComponentPicker, AllowedClasses = "/Script/Engine.SceneComponent"))
 	FComponentReference BoundsOverride;
 
 	/** Current bounding box in the local space of the actor. */

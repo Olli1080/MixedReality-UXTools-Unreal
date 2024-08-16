@@ -236,7 +236,7 @@ private:
 	// Configurable properties.
 
 	/** The thumb visuals. */
-	UPROPERTY(EditAnywhere, Category = "Uxt Pinch Slider", meta = (UseComponentPicker, AllowedClasses = "StaticMeshComponent"))
+	UPROPERTY(EditAnywhere, Category = "Uxt Pinch Slider", meta = (UseComponentPicker, AllowedClasses = "/Script/Engine.StaticMeshComponent"))
 	FComponentReference Visuals;
 
 	/** The slider's position on the track, between 0-1. */

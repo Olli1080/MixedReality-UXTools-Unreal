@@ -169,7 +169,7 @@ public:
 
 private:
 	/** The component to transform, defaults to the first primitive component if not specified */
-	UPROPERTY(EditAnywhere, Category = "Uxt Tap To Place", meta = (UseComponentPicker, AllowedClasses = "SceneComponent"))
+	UPROPERTY(EditAnywhere, Category = "Uxt Tap To Place", meta = (UseComponentPicker, AllowedClasses = "/Script/Engine.SceneComponent"))
 	FComponentReference TargetComponent;
 
 	bool bIsBeingPlaced = false;

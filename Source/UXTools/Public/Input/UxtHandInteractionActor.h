@@ -102,7 +102,7 @@ public:
 
 	/** Active interaction modes */
 	UPROPERTY(
-		Transient, EditAnywhere, BlueprintReadWrite, Category = "Uxt Hand Interaction", meta = (Bitmask, BitmaskEnum = EUxtInteractionMode))
+		Transient, EditAnywhere, BlueprintReadWrite, Category = "Uxt Hand Interaction", meta = (Bitmask, BitmaskEnum = "/Script/UXTools.EUxtInteractionMode"))
 	int32 InteractionMode = static_cast<int32>(EUxtInteractionMode::Near | EUxtInteractionMode::Far);
 
 private:

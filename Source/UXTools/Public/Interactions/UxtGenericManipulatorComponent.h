@@ -55,7 +55,7 @@ public:
 
 	/** The component to transform, will default to the root scene component if not specified */
 	UPROPERTY(
-		EditAnywhere, Category = "Uxt Generic Manipulator", AdvancedDisplay, meta = (UseComponentPicker, AllowedClasses = "SceneComponent"))
+		EditAnywhere, Category = "Uxt Generic Manipulator", AdvancedDisplay, meta = (UseComponentPicker, AllowedClasses = "/Script/Engine.SceneComponent"))
 	FComponentReference TargetComponent;
 
 	/**

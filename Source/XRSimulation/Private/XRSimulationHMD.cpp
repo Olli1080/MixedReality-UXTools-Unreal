@@ -307,16 +307,18 @@ void FXRSimulationHMD::CopyTexture_RenderThread(
 		SetGraphicsPipelineState(RHICmdList, GraphicsPSOInit, 0);
 
 		RHICmdList.Transition(FRHITransitionInfo(SrcTexture, ERHIAccess::Unknown, ERHIAccess::SRVMask));
-
+		FRHIBatchedShaderParameters& BatchedParameters = RHICmdList.GetScratchShaderParameters();
+		
 		const bool bSameSize = DstRect.Size() == SrcRect.Size();
 		if (bSameSize)
 		{
-			PixelShader->SetParameters(RHICmdList, TStaticSamplerState<SF_Point>::GetRHI(), SrcTexture);
+			PixelShader->SetParameters(BatchedParameters, TStaticSamplerState<SF_Point>::GetRHI(), SrcTexture);
 		}
 		else
 		{
-			PixelShader->SetParameters(RHICmdList, TStaticSamplerState<SF_Bilinear>::GetRHI(), SrcTexture);
+			PixelShader->SetParameters(BatchedParameters, TStaticSamplerState<SF_Bilinear>::GetRHI(), SrcTexture);
 		}
+		RHICmdList.SetBatchedShaderParameters(RHICmdList.GetBoundPixelShader(), BatchedParameters);
 
 		RendererModule->DrawRectangle(
 			RHICmdList, 0, 0, ViewportWidth, ViewportHeight, U, V, USize, VSize, TargetSize, FIntPoint(1, 1), VertexShader, EDRF_Default);

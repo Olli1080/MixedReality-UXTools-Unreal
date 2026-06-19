@@ -66,16 +66,16 @@ public:
 
 	virtual void OnEndPlay(FWorldContext& InWorldContext) override;
 
-	virtual void OnBeginRendering_RenderThread(FRHICommandListImmediate& RHICmdList, FSceneViewFamily& ViewFamily) override;
+	// virtual void OnBeginRendering_RenderThread(FRHICommandListImmediate& RHICmdList, FSceneViewFamily& ViewFamily) override;
 	// Spectator screen Hooks.
-	virtual FIntRect GetFullFlatEyeRect_RenderThread(FTexture2DRHIRef EyeTexture) const override;
+	// virtual FIntRect GetFullFlatEyeRect_RenderThread(FTextureRHIRef EyeTexture) const;
 	// Helper to copy one render target into another for spectator screen display
 	virtual void CopyTexture_RenderThread(
-		FRHICommandListImmediate& RHICmdList, FRHITexture2D* SrcTexture, FIntRect SrcRect, FRHITexture2D* DstTexture, FIntRect DstRect,
-		bool bClearBlack, bool bNoAlpha) const override;
+		FRHICommandListImmediate& RHICmdList, FRHITexture* SrcTexture, FIntRect SrcRect, FRHITexture* DstTexture, FIntRect DstRect,
+		bool bClearBlack, bool bNoAlpha) const;
 
 	virtual void GetMotionControllerData(
-		UObject* WorldContext, const EControllerHand Hand, FXRMotionControllerData& MotionControllerData) override;
+		UObject* WorldContext, const EControllerHand Hand, FXRMotionControllerData& MotionControllerData);
 
 protected:
 	/** FXRTrackingSystemBase protected interface */
@@ -103,9 +103,9 @@ public:
 		const struct FHeadMountedDisplayPassContext& Context, FVector2D& EyeToSrcUVScaleValue,
 		FVector2D& EyeToSrcUVOffsetValue) const override;
 	virtual IStereoRenderTargetManager* GetRenderTargetManager() override;
-	virtual void RenderTexture_RenderThread(
-		class FRHICommandListImmediate& RHICmdList, class FRHITexture* BackBuffer, class FRHITexture* SrcTexture,
-		FVector2D WindowSize) const override;
+	// virtual void RenderTexture_RenderThread(
+	// 	class FRHICommandListImmediate& RHICmdList, class FRHITexture* BackBuffer, class FRHITexture* SrcTexture,
+	// 	FVector2D WindowSize) const override;
 
 	/** IStereoRenderTargetManager */
 	virtual bool ShouldUseSeparateRenderTarget() const override;
@@ -114,8 +114,8 @@ public:
 	virtual void SetupViewFamily(FSceneViewFamily& InViewFamily) override;
 	virtual void SetupView(FSceneViewFamily& InViewFamily, FSceneView& InView) override;
 	virtual void BeginRenderViewFamily(FSceneViewFamily& InViewFamily) {}
-	virtual void PreRenderView_RenderThread(FRHICommandListImmediate& RHICmdList, FSceneView& InView) override;
-	virtual void PreRenderViewFamily_RenderThread(FRHICommandListImmediate& RHICmdList, FSceneViewFamily& InViewFamily) override;
+	virtual void PreRenderView_RenderThread(FRDGBuilder& GraphBuilder, FSceneView& InView) override;
+	virtual void PreRenderViewFamily_RenderThread(FRDGBuilder& GraphBuilder, FSceneViewFamily& InViewFamily) override;
 
 protected:
 	virtual bool IsActiveThisFrame_Internal(const FSceneViewExtensionContext& Context) const override;

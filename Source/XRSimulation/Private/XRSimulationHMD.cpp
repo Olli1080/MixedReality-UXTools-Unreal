@@ -232,6 +232,7 @@ void FXRSimulationHMD::OnEndPlay(FWorldContext& InWorldContext)
 	bIsInitialized = false;
 }
 
+/*
 void FXRSimulationHMD::OnBeginRendering_RenderThread(FRHICommandListImmediate& RHICmdList, FSceneViewFamily& ViewFamily)
 {
 	if (SpectatorScreenController)
@@ -239,19 +240,20 @@ void FXRSimulationHMD::OnBeginRendering_RenderThread(FRHICommandListImmediate& R
 		SpectatorScreenController->UpdateSpectatorScreenMode_RenderThread();
 	}
 }
+*/
 
-FIntRect FXRSimulationHMD::GetFullFlatEyeRect_RenderThread(FTexture2DRHIRef EyeTexture) const
-{
-	FVector2D SrcNormRectMin(0.0f, 0.0f);
-	FVector2D SrcNormRectMax(1.0f, 1.0f);
+// FIntRect FXRSimulationHMD::GetFullFlatEyeRect_RenderThread(FTextureRHIRef EyeTexture) const
+// {
+// 	FVector2D SrcNormRectMin(0.0f, 0.0f);
+// 	FVector2D SrcNormRectMax(1.0f, 1.0f);
 
-	return FIntRect(
-		EyeTexture->GetSizeX() * SrcNormRectMin.X, EyeTexture->GetSizeY() * SrcNormRectMin.Y, EyeTexture->GetSizeX() * SrcNormRectMax.X,
-		EyeTexture->GetSizeY() * SrcNormRectMax.Y);
-}
+// 	return FIntRect(
+// 		EyeTexture->GetSizeX() * SrcNormRectMin.X, EyeTexture->GetSizeY() * SrcNormRectMin.Y, EyeTexture->GetSizeX() * SrcNormRectMax.X,
+// 		EyeTexture->GetSizeY() * SrcNormRectMax.Y);
+// }
 
 void FXRSimulationHMD::CopyTexture_RenderThread(
-	FRHICommandListImmediate& RHICmdList, FRHITexture2D* SrcTexture, FIntRect SrcRect, FRHITexture2D* DstTexture, FIntRect DstRect,
+	FRHICommandListImmediate& RHICmdList, FRHITexture* SrcTexture, FIntRect SrcRect, FRHITexture* DstTexture, FIntRect DstRect,
 	bool bClearBlack, bool bNoAlpha) const
 {
 	check(IsInRenderingThread());
@@ -335,7 +337,7 @@ void FXRSimulationHMD::GetMotionControllerData(
 	// Default values
 	MotionControllerData.DeviceVisualType = EXRVisualType::Controller;
 	MotionControllerData.TrackingStatus = ETrackingStatus::NotTracked;
-	MotionControllerData.HandIndex = Hand;
+	MotionControllerData.HandIndex = static_cast<int32>(Hand);
 
 	if (AXRSimulationActor* InputSimActor = SimulationActorWeak.Get())
 	{
@@ -468,15 +470,15 @@ IStereoRenderTargetManager* FXRSimulationHMD::GetRenderTargetManager()
 	return this;
 }
 
-void FXRSimulationHMD::RenderTexture_RenderThread(
-	class FRHICommandListImmediate& RHICmdList, class FRHITexture* BackBuffer, class FRHITexture* SrcTexture,
-	FVector2D WindowSize) const
-{
-	if (SpectatorScreenController)
-	{
-		SpectatorScreenController->RenderSpectatorScreen_RenderThread(RHICmdList, BackBuffer, SrcTexture, WindowSize);
-	}
-}
+// void FXRSimulationHMD::RenderTexture_RenderThread(
+// 	class FRHICommandListImmediate& RHICmdList, class FRHITexture* BackBuffer, class FRHITexture* SrcTexture,
+// 	FVector2D WindowSize) const
+// {
+// 	if (SpectatorScreenController)
+// 	{
+// 		SpectatorScreenController->RenderSpectatorScreen_RenderThread(RHICmdList, BackBuffer, SrcTexture, WindowSize);
+// 	}
+// }
 
 bool FXRSimulationHMD::ShouldUseSeparateRenderTarget() const
 {
@@ -498,12 +500,12 @@ void FXRSimulationHMD::SetupView(FSceneViewFamily& InViewFamily, FSceneView& InV
 	}
 }
 
-void FXRSimulationHMD::PreRenderView_RenderThread(FRHICommandListImmediate& RHICmdList, FSceneView& InView)
+void FXRSimulationHMD::PreRenderView_RenderThread(FRDGBuilder& GraphBuilder, FSceneView& InView)
 {
 	check(IsInRenderingThread());
 }
 
-void FXRSimulationHMD::PreRenderViewFamily_RenderThread(FRHICommandListImmediate& RHICmdList, FSceneViewFamily& ViewFamily)
+void FXRSimulationHMD::PreRenderViewFamily_RenderThread(FRDGBuilder& GraphBuilder, FSceneViewFamily& ViewFamily)
 {
 	check(IsInRenderingThread());
 }

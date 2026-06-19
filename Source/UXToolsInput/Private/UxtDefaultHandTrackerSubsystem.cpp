@@ -2,6 +2,7 @@
 // Licensed under the MIT License.
 
 #include "UxtDefaultHandTrackerSubsystem.h"
+#include "UxtXRCompatibility.h"
 
 #include "ARSupportInterface.h"
 #include "IXRTrackingSystem.h"
@@ -138,22 +139,19 @@ void UUxtDefaultHandTrackerSubsystem::OnWorldPreActorTick(UWorld* World, ELevelT
 	else
 	{
 		// True XR system data from devices
-		if (IXRTrackingSystem* XRSystem = GEngine->XRSystem.Get())
-		{
-			XRSystem->GetMotionControllerData(World, EControllerHand::Left, DefaultHandTracker.ControllerData_Left);
-			XRSystem->GetMotionControllerData(World, EControllerHand::Right, DefaultHandTracker.ControllerData_Right);
+		UxtGetMotionControllerData(World, EControllerHand::Left, DefaultHandTracker.ControllerData_Left);
+		UxtGetMotionControllerData(World, EControllerHand::Right, DefaultHandTracker.ControllerData_Right);
 
-			// Work around: tracking loss does not send a release event for Select/Grip
-			if (DefaultHandTracker.ControllerData_Left.TrackingStatus == ETrackingStatus::NotTracked)
-			{
-				DefaultHandTracker.bIsSelectPressed_Left = false;
-				DefaultHandTracker.bIsGrabbing_Left = false;
-			}
-			if (DefaultHandTracker.ControllerData_Right.TrackingStatus == ETrackingStatus::NotTracked)
-			{
-				DefaultHandTracker.bIsSelectPressed_Right = false;
-				DefaultHandTracker.bIsGrabbing_Right = false;
-			}
+		// Work around: tracking loss does not send a release event for Select/Grip
+		if (DefaultHandTracker.ControllerData_Left.TrackingStatus == ETrackingStatus::NotTracked)
+		{
+			DefaultHandTracker.bIsSelectPressed_Left = false;
+			DefaultHandTracker.bIsGrabbing_Left = false;
+		}
+		if (DefaultHandTracker.ControllerData_Right.TrackingStatus == ETrackingStatus::NotTracked)
+		{
+			DefaultHandTracker.bIsSelectPressed_Right = false;
+			DefaultHandTracker.bIsGrabbing_Right = false;
 		}
 
 		// Disable head pose override from simulation

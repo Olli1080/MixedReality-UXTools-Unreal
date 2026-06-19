@@ -10,7 +10,8 @@ public class UXToolsInput : ModuleRules
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
 		// Required to avoid errors about undefined preprocessor macros (C4668) when building DirectXMath.h
-		bEnableUndefinedIdentifierWarnings = false;
+		// Deprecated in UE 5.6
+		CppCompileWarningSettings.UndefinedIdentifierWarningLevel = WarningLevel.Off;
 
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "EnhancedInput", "InputCore", "HeadMountedDisplay", "AugmentedReality", "LiveLinkInterface", "XRSimulation" });
 

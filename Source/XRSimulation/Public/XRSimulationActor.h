@@ -15,6 +15,7 @@
 #include "InputMappingContext.h"
 #include "InputAction.h"
 
+#include "UxtXRCompatibility.h"
 #include "XRSimulationActor.generated.h"
 
 struct FXRMotionControllerData;

@@ -8,6 +8,7 @@
 
 #include "Subsystems/LocalPlayerSubsystem.h"
 
+#include "UxtXRCompatibility.h"
 #include "UxtXRSimulationSubsystem.generated.h"
 
 class AXRSimulationActor;

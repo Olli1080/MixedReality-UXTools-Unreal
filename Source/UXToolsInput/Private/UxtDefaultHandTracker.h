@@ -8,6 +8,7 @@
 #include "HeadMountedDisplayTypes.h"
 
 #include "HandTracking/IUxtHandTracker.h"
+#include "UxtXRCompatibility.h"
 
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
